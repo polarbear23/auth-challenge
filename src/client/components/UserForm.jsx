@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function UserForm({ handleSubmit }) {
+export default function UserForm({ handleSubmit, formType }) {
     const [user, setUser] = useState({ username: '', password: '' });
 
     const handleSubmitDecorator = (e) => {
@@ -19,6 +19,7 @@ export default function UserForm({ handleSubmit }) {
 
     return (
         <form onSubmit={handleSubmitDecorator}>
+            {formType === "register" ? <h1>Register</h1> : <h1>Login</h1>}
             <input type="text" name="username" placeholder="Username" value={user.username} onChange={handleChange} />
             <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} />
             <button type="submit">Submit</button>
